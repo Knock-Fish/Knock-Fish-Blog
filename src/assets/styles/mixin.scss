@@ -1,0 +1,7 @@
+// sacc 混合宏（函数）
+@use "./variables.scss" as *;
+@mixin element_display($mode){
+    @media screen and (max-width: $screen-medium){
+        display: $mode;
+    }
+}
