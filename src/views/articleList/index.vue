@@ -23,9 +23,9 @@
                 </div>
             </div>
             <div class="right-container">
-                <el-image :src="url" lazy>
+                <el-image :src="url" fit="cover" lazy>
                     <template #error>
-                        <el-image :src="errorUrl"/>
+                        <el-image :src="errorUrl" />
                     </template>
                 </el-image>
             </div>
@@ -105,12 +105,27 @@ const tags = reactive([
 
         .right-container {
             flex: 1;
-
             .el-image {
                 width: 100%;
                 height: 100%;
                 border-radius: 15px;
 
+            }
+        }
+
+        @media screen and (max-width: $screen-medium) {
+            flex-direction: column-reverse;
+            gap: 0px;
+
+            .right-container {
+                .el-image {
+                    height: 150px;
+
+                    :deep(.el-image__inner) {
+                        object-position: center top;
+                        mask-image: linear-gradient(to top, transparent 0%, rgba(0, 0, 0, 0.5) 30%, #000 100%);
+                    }
+                }
             }
         }
     }

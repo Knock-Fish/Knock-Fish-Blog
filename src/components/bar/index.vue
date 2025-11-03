@@ -5,13 +5,18 @@
                 KnockFish
             </div>
             <div class="bar">
-                <HeaderBar />
+                <Menu />
             </div>
-            <div class="search">
-                <Search />
-            </div>
-            <div class="menu">
-                <HamburgerMenu />
+            <div class="parts">
+                <div class="search">
+                    <Search />
+                </div>
+                <div class="theme">
+                    <Theme />
+                </div>
+                <div class="menu">
+                    <HamburgerMenu />
+                </div>
             </div>
         </div>
     </el-affix>
@@ -20,8 +25,9 @@
 <script setup lang='ts'>
 import { ref } from "vue"
 import HamburgerMenu from './HamburgerMenu.vue';
-import HeaderBar from './HeaderBar.vue';
+import Menu from './Menu.vue';
 import Search from "./Search.vue";
+import Theme from "./Theme.vue";
 const header = ref()
 
 // 闭包+节流，当滚动到一定距离时给头部导航栏添加背景颜色
@@ -36,7 +42,7 @@ const throttle_Scroll = () => {
                     header.value.style.backgroundColor = "transparent"
                 }
                 timer = null
-            }, 100)
+            }, 10)
         }
     }
 }
@@ -46,7 +52,8 @@ const updateHeader = throttle_Scroll()
 <style lang="scss" scoped>
 .header-top-bar {
     display: flex;
-    justify-content: space-around;
+    width: 100vw;
+    justify-content: space-evenly;
     height: 80px;
     transition: all .3s;
 
@@ -55,8 +62,13 @@ const updateHeader = throttle_Scroll()
         margin: auto 10px;
     }
 
-    .search {
-        margin: auto 0;
+    .parts {
+        display: flex;
+        gap: 15px;
+        .search,
+        .theme {
+            margin: auto 0;
+        }
     }
 
     .logo {
@@ -69,24 +81,32 @@ const updateHeader = throttle_Scroll()
         -webkit-background-clip: text;
         background-clip: text;
     }
-    .bar{
+
+    .bar {
         margin: auto 0;
     }
 
-    @media screen and (max-width: 770px) {
+    @media screen and (max-width: $screen-small) {
+        justify-content: space-around;
+
         .menu {
             display: block;
         }
 
-        .logo {
-            margin: auto;
-            transform: translateX(25%);
-        }
+        // .logo {
+        //     // margin: auto;
+        //     // transform: translateX(25%);
+        // }
 
-        .bar,
-        .search {
+        .bar{
             display: none;
         }
+        .parts {
+            .search {
+                display: none;
+            }
+        }
+
     }
 }
 </style>

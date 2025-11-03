@@ -1,5 +1,5 @@
 <template>
-    <el-menu :default-active="1" class="el-menu-demo" mode="horizontal" @select="handleSelect" :router="true"
+    <el-menu :default-active="1" class="el-menu-demo" :mode="menuMode" @select="handleSelect" :router="true"
         :ellipsis="false">
         <el-menu-item index="1">
             <el-icon><House /></el-icon>
@@ -30,16 +30,19 @@
 
 <script setup lang='ts'>
 const handleSelect = () => { }
-
+const props = defineProps({
+    menuMode:{
+        type: String,
+        default: "horizontal"
+    }
+})
 </script>
 
 <style lang="scss" scoped>
-.el-menu--horizontal.el-menu {
-    border-bottom: none;
-}
-
 .el-menu {
     background-color: transparent;
+    border: none;
+    
 }
 
 .el-menu-item {
@@ -51,7 +54,13 @@ const handleSelect = () => { }
 
     &:hover {
         background-color: transparent !important;
-        color: #c4c4c4 !important;
+        color: #ffc2c2 !important;
+    }
+    
+    @media screen and (max-width: $screen-small){
+        font-size: 13px;
+        height: 37px;
+        color: #000;
     }
 }
 </style>

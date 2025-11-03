@@ -63,5 +63,10 @@ const focusInput = () => {
       }
     }
   }
+
+  @media screen and (min-width: $screen-medium) {
+    // width: 100%;
+    width: 100px;
+  }
 }
 </style>
