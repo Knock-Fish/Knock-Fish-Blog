@@ -11,7 +11,7 @@
 import { ref } from "vue"
 const input1 = ref()
 const isActive = ref(false)
-const inputRef = ref()
+const inputRef = ref<HTMLElement | null>(null)
 const toggle = () => {
   if (!isActive.value) {
     focusInput()
@@ -19,7 +19,9 @@ const toggle = () => {
   isActive.value = !isActive.value
 }
 const focusInput = () => {
-  inputRef.value.focus(); // 调用 focus() 方法
+  if(inputRef.value){
+    inputRef?.value.focus(); // 调用 focus() 方法
+  }
 };
 
 

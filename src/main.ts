@@ -8,8 +8,8 @@ import 'element-plus/dist/index.css'
 import zhCn from 'element-plus/es/locale/lang/zh-cn'
 import '@styles/reset.scss'                         // 重置HTML样式
 import '@styles/mobile.scss'                        // 移动端样式优化
-import "@fonts/index.scss"                          // 引入字体库
 import "@styles/el-ui.scss"
+import "@fonts/index.scss"                          // 引入字体库
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import App from './App.vue'
 const app = createApp(App)

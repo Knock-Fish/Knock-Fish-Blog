@@ -6,22 +6,18 @@
             <span>首页</span>
         </el-menu-item>
         <el-menu-item index="2">
-            <el-icon><Document /></el-icon>
-            <span>文章</span>
-        </el-menu-item>
-        <el-menu-item index="3">
             <el-icon><Link /></el-icon>
             <span>友链</span>
         </el-menu-item>
-        <el-menu-item index="4">
+        <el-menu-item index="3">
             <el-icon><Files /></el-icon>
             <span>归档</span>
         </el-menu-item>
-        <el-menu-item index="5">
+        <el-menu-item index="4">
             <el-icon><Position /></el-icon>
             <span>导航</span>
         </el-menu-item>
-        <el-menu-item index="6">
+        <el-menu-item index="5">
             <el-icon><WarningFilled /></el-icon>
             <span>关于</span>
         </el-menu-item>
@@ -29,6 +25,9 @@
 </template>
 
 <script setup lang='ts'>
+import { useRouter } from 'vue-router';
+const router = useRouter()
+console.log(router)
 const handleSelect = () => { }
 const props = defineProps({
     menuMode:{
@@ -39,22 +38,15 @@ const props = defineProps({
 </script>
 
 <style lang="scss" scoped>
-.el-menu {
-    background-color: transparent;
-    border: none;
-    
-}
-
 .el-menu-item {
     font-weight: bold;
     font-size: 20px;
     color: #fff;
-    border-bottom: none;
     padding: 0 10px;
 
     &:hover {
-        background-color: transparent !important;
-        color: #ffc2c2 !important;
+        // background-color: transparent !important;
+        // color: #ad99ff !important;
     }
     
     @media screen and (max-width: $screen-small){

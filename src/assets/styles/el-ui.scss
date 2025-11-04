@@ -1,4 +1,12 @@
-/* 优化Element plus组件样式*/
-:root{
-     --el-menu-sub-item-height: 50px !important;
+/* 优化Element plus组件库默认样式*/
+// 修改el-menu菜单的边框、背景
+.el-menu {
+     background-color: transparent !important;
+     border: none !important;
+     .el-menu-item{
+          border-bottom: none;
+          &:hover{
+               background-color: transparent !important;
+          }
+     }
 }
