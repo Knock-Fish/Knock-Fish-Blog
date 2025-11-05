@@ -34,8 +34,8 @@
 </template>
 
 <script setup lang='ts'>
-const url = new URL("@imgs/image1.png", import.meta.url).href
-const errorUrl = new URL("@imgs/error.png", import.meta.url).href
+const url = new URL("@imgs/image1.webp", import.meta.url).href
+const errorUrl = new URL("@imgs/error.webp", import.meta.url).href
 import { reactive } from 'vue';
 const tags = reactive([
     { id: 1, tag: "Java", color: "#5AB8F6", effect: "light" },

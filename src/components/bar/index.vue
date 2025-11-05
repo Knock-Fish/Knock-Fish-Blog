@@ -1,5 +1,5 @@
 <template>
-    <el-affix @scroll="updateHeader">
+    <!-- <el-affix @scroll="updateHeader"> -->
         <div ref="header" class="header-top-bar">
             <div class="logo">
                 KnockFish
@@ -19,7 +19,7 @@
                 </div>
             </div>
         </div>
-    </el-affix>
+    <!-- </el-affix> -->
 </template>
 
 <script setup lang='ts'>
@@ -51,6 +51,8 @@ const updateHeader = throttle_Scroll()
 
 <style lang="scss" scoped>
 .header-top-bar {
+    position: fixed;
+    z-index: 10000;
     display: flex;
     width: 100vw;
     justify-content: space-evenly;
@@ -65,6 +67,7 @@ const updateHeader = throttle_Scroll()
     .parts {
         display: flex;
         gap: 15px;
+
         .search,
         .theme {
             margin: auto 0;
@@ -98,9 +101,10 @@ const updateHeader = throttle_Scroll()
         //     // transform: translateX(25%);
         // }
 
-        .bar{
+        .bar {
             display: none;
         }
+
         .parts {
             .search {
                 display: none;
