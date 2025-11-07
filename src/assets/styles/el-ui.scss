@@ -3,10 +3,27 @@
 .el-menu {
      background-color: transparent !important;
      border: none !important;
-     .el-menu-item{
+
+     .el-menu-item {
           border-bottom: none;
-          &:hover{
+
+          &:hover {
                background-color: transparent !important;
           }
+     }
+}
+
+// 去除el-button按钮的背景和边框
+.el-button {
+     background-color: transparent !important;
+     border: none !important;
+}
+
+// 去除el-input输入框的边框以及内部背景色
+.el-input {
+     .el-input__wrapper {
+          background-color: transparent;
+          box-shadow: none;
+          padding: 0;
      }
 }

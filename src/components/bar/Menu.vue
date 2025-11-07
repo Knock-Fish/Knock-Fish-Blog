@@ -42,7 +42,7 @@ const props = defineProps({
     font-weight: bold;
     font-size: 20px;
     color: #fff;
-    padding: 0 10px;
+    // padding: 0 30px;
 
     &:hover {
         // background-color: transparent !important;

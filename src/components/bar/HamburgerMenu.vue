@@ -22,8 +22,7 @@ onBeforeUnmount(()=>{
 })
 // 点击其他区域关闭菜单弹窗
 function handleOutsideClick(e: MouseEvent): void {
-    console.log(e.target)
-    if (menuRef.value) {
+    if (menuRef.value && isShow.value) {
         if (!menuRef.value.contains(e.target as HTMLElement)) {
             isShow.value = false
         }

@@ -1,6 +1,8 @@
 <template>
     <Bar />
-    <RouterView/>
+    <div class="main">
+            <RouterView/>
+    </div>
 </template>
 
 <script setup lang='ts'>

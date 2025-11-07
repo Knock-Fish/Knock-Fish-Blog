@@ -31,11 +31,17 @@
             </div>
         </div>
     </el-card>
+    <div ref="paginationRef" class="pagination">
+        <el-pagination :size="paginationSize" background layout="prev, pager, next" :total="1000" />
+    </div>  
 </template>
 
 <script setup lang='ts'>
+import { onBeforeUnmount, onMounted, ref } from "vue"
 const url = new URL("@imgs/image1.webp", import.meta.url).href
 const errorUrl = new URL("@imgs/error.webp", import.meta.url).href
+const paginationSize = ref("large")
+const paginationRef = ref<Element | null>(null)
 import { reactive } from 'vue';
 const tags = reactive([
     { id: 1, tag: "Java", color: "#5AB8F6", effect: "light" },
@@ -43,6 +49,26 @@ const tags = reactive([
     { id: 3, tag: "Nodejs", color: "#B6F65A", effect: "light" },
     { id: 4, tag: "HTML", color: "#2167AC", effect: "light" },
 ])
+onMounted(()=>{
+    // 开始监听
+    resizeObserver.observe(paginationRef.value as Element)
+})
+onBeforeUnmount(()=>{
+    // 移除监听
+    resizeObserver.disconnect()
+})
+// 监听元素尺寸变化，根据窗口设置分页组件大小
+const resizeObserver = new ResizeObserver((entries) => {
+    for(const entry of entries){
+        if(entry.contentRect.width < 400){
+            paginationSize.value = "small"
+        }else{
+            paginationSize.value = "large"
+        }
+    }
+})
+
+
 
 </script>
 
@@ -130,4 +156,10 @@ const tags = reactive([
         }
     }
 }
+
+.el-pagination {
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
 </style>
