@@ -48,6 +48,7 @@ onBeforeUnmount(() => {
     overflow: hidden;
     text-align: center;
     position: relative;
+    box-sizing: border-box;
     background-image: url("@/assets/img/bg.webp");
     background-size: cover;
     background-position: center;
@@ -85,6 +86,7 @@ onBeforeUnmount(() => {
 .area {
     display: flex;
     max-width: 1200px;
+    box-sizing: border-box;
     margin: 0 auto;
     background-color: #ffffff;
 
